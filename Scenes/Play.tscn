@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://358psp32b07m"]
+[gd_scene load_steps=3 format=3 uid="uid://358psp32b07m"]
 
 [ext_resource type="Script" path="res://Scenes/play.gd" id="1_fauyc"]
 [ext_resource type="PackedScene" uid="uid://c8h4e8ckx5kiq" path="res://components/close_button.tscn" id="2_4ln3x"]
-[ext_resource type="Script" path="res://Scenes/dealCards.gd" id="3_pq0gs"]
 
 [node name="Play" type="Node2D"]
 script = ExtResource("1_fauyc")
@@ -13,7 +12,6 @@ offset_top = 400.0
 offset_right = 350.0
 offset_bottom = 500.0
 text = "Deal"
-script = ExtResource("3_pq0gs")
 
 [node name="stopButton" parent="." instance=ExtResource("2_4ln3x")]
 offset_left = 750.0
@@ -38,11 +36,18 @@ theme_override_font_sizes/font_size = 61
 
 [node name="cardTotal" type="Label" parent="."]
 offset_left = 125.0
-offset_top = 98.0
+offset_top = 200.0
 offset_right = 338.0
-offset_bottom = 201.0
+offset_bottom = 303.0
 theme_override_font_sizes/font_size = 61
+
+[node name="Close Button" parent="." instance=ExtResource("2_4ln3x")]
+offset_left = 1050.0
+offset_top = 50.0
+offset_right = 1100.0
+offset_bottom = 100.0
 
 [connection signal="pressed" from="dealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="pressed" from="stopButton" to="." method="_on_stop_button_pressed"]
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]
