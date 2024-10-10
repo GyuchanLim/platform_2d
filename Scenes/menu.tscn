@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://eud8oy8dymi8"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_angl2"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_angl2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 141.0
+offset_bottom = 166.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Help" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Help"
+
+[node name="Pooh" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pooh"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Pooh" to="." method="_on_pooh_pressed"]

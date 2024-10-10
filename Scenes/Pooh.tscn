@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4pammtx8toam"]
+
+[ext_resource type="Script" path="res://Scenes/pooh.gd" id="1_3og4n"]
+[ext_resource type="Texture2D" uid="uid://oujoplsbgq0m" path="res://Images/Pooh.png" id="1_mkdav"]
+[ext_resource type="PackedScene" uid="uid://c8h4e8ckx5kiq" path="res://components/close_button.tscn" id="2_14hyb"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_3og4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -5.68434e-14)
+scale = Vector2(0.364035, 0.354651)
+texture = ExtResource("1_mkdav")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Close Button" parent="." instance=ExtResource("2_14hyb")]
+
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]

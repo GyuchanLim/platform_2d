@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://rkplbgpabcen"]
+
+[ext_resource type="Script" path="res://Scenes/pooh.gd" id="1_p1c7j"]
+[ext_resource type="PackedScene" uid="uid://c8h4e8ckx5kiq" path="res://components/close_button.tscn" id="3_kxilq"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_p1c7j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Close Button" parent="." instance=ExtResource("3_kxilq")]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -386.0
+offset_top = -200.0
+offset_right = -102.0
+offset_bottom = -79.0
+text = "This is Help page
+
+Nice to meet you friends >:)"
+
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]
