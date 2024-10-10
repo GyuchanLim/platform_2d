@@ -1,34 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://358psp32b07m"]
+[gd_scene load_steps=4 format=3 uid="uid://358psp32b07m"]
 
 [ext_resource type="Script" path="res://Scenes/play.gd" id="1_fauyc"]
 [ext_resource type="PackedScene" uid="uid://c8h4e8ckx5kiq" path="res://components/close_button.tscn" id="2_4ln3x"]
+[ext_resource type="Script" path="res://Scenes/dealCards.gd" id="3_pq0gs"]
 
 [node name="Play" type="Node2D"]
 script = ExtResource("1_fauyc")
 
-[node name="Play Button" parent="." instance=ExtResource("2_4ln3x")]
-offset_left = 548.0
-offset_top = 320.0
-offset_right = 616.0
-offset_bottom = 370.0
-text = "Play"
-
-[node name="Deal Button" parent="Play Button" instance=ExtResource("2_4ln3x")]
-layout_mode = 0
-offset_left = -285.0
-offset_top = 148.0
-offset_right = -212.0
-offset_bottom = 198.0
+[node name="dealButton" parent="." instance=ExtResource("2_4ln3x")]
+offset_left = 150.0
+offset_top = 400.0
+offset_right = 350.0
+offset_bottom = 500.0
 text = "Deal"
+script = ExtResource("3_pq0gs")
 
-[node name="Stop Button" parent="Play Button" instance=ExtResource("2_4ln3x")]
-layout_mode = 0
-offset_left = 231.0
-offset_top = 143.0
-offset_right = 304.0
-offset_bottom = 193.0
+[node name="stopButton" parent="." instance=ExtResource("2_4ln3x")]
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 950.0
+offset_bottom = 500.0
 text = "Stop"
 
-[connection signal="pressed" from="Play Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Play Button/Deal Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Play Button/Stop Button" to="." method="_on_play_button_pressed"]
+[node name="playButton" parent="." instance=ExtResource("2_4ln3x")]
+offset_left = 450.0
+offset_top = 400.0
+offset_right = 650.0
+offset_bottom = 500.0
+text = "Play"
+
+[node name="cardsDisplayed" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 98.0
+offset_right = 338.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 61
+
+[node name="cardTotal" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 98.0
+offset_right = 338.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 61
+
+[connection signal="pressed" from="dealButton" to="." method="_on_deal_button_pressed"]
+[connection signal="pressed" from="stopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
