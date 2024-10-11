@@ -10,7 +10,6 @@ var dict_card_numbers: Dictionary
 
 func _ready() -> void:
 	get_node("playerControl").hide()
-	get_node("dealerControl").hide()
 
 # BUTTON PRESSES
 func _on_play_button_pressed() -> void:
@@ -25,10 +24,7 @@ func _on_deal_button_pressed() -> void:
 	display_cards(dealt_card)
 	add_to_total(dealt_card)
 func _on_stay_button_pressed() -> void:
-	# reset_total()
-	
-	# switch over to the dealer side
-	display_dealer()
+	# switch over to the dealer turn
 	print("Stop button pressed")
 
 
@@ -69,8 +65,6 @@ func add_to_total(card) -> void:
 	cardsTotalLabel.text = "Total " + str(total)
 
 # _on_stay_button_pressed functions
-func display_dealer() -> void:
-	get_node("dealerControl").show()
 func reset_total() -> void:
 	total = 0
 	cardsTotalLabel.text = ""
