@@ -10,7 +10,7 @@ func _ready() -> void:
 	get_node("dealerControl").hide()
 
 func draw_card() -> Array:
-	return autoLoad.deck_to_play.pop_back()
+	return Deck.deck_to_play.pop_back()
 
 # _on_play_button_pressed functions
 func player_ready() -> void:
@@ -29,7 +29,7 @@ func display_player_cards(card) -> void:
 func add_to_player_total(card) -> void:
 	var card_value = card[1]
 	
-	player_total += autoLoad.dict_card_numbers[card[1]]
+	player_total += Deck.dict_card_numbers[card[1]]
 	$playerControl/cardTotal.text = "Total " + str(player_total)
 
 func display_dealer_cards(card) -> void:
@@ -40,7 +40,7 @@ func display_dealer_cards(card) -> void:
 func add_to_dealer_total(card) -> void:
 	var card_value = card[1]
 	
-	dealer_total += autoLoad.dict_card_numbers[card[1]]
+	dealer_total += Deck.dict_card_numbers[card[1]]
 	$dealerControl/cardTotal.text = "Total " + str(dealer_total)
 
 # _on_stay_button_pressed functions
