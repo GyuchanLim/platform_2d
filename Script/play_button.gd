@@ -4,4 +4,4 @@ extends Button
 
 func _on_pressed() -> void:
 	play.player_ready()
-	play.prepare_deck()
+	autoLoad.prepare_deck()
