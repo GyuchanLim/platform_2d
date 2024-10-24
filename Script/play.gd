@@ -1,7 +1,5 @@
 extends Node2D
 
-var dealer_total: int
-var player_total: int
 var is_player_ready: bool = false
 
 func _ready() -> void:
@@ -21,32 +19,24 @@ func player_ready() -> void:
 	get_node("playButton").hide()
 
 # _on_deal_button_pressed functions
-func display_player_cards(card) -> void:
+func display_player_cards(card_value) -> void:
+	$playerControl/cardTotal.text = "Total " + str(Score.player_total)
 	if $playerControl/cardsDisplayed.text == "":
-		$playerControl/cardsDisplayed.text += card[1]
+		$playerControl/cardsDisplayed.text += str(card_value)
 	else:
-		$playerControl/cardsDisplayed.text += ", " + card[1]
-func add_to_player_total(card) -> void:
-	var card_value = card[1]
-	
-	player_total += Deck.dict_card_numbers[card[1]]
-	$playerControl/cardTotal.text = "Total " + str(player_total)
+		$playerControl/cardsDisplayed.text += ", " + str(card_value)
 
-func display_dealer_cards(card) -> void:
+func display_dealer_cards(card_value) -> void:
+	$dealerControl/cardTotal.text = "Total " + str(Score.dealer_total)
 	if $dealerControl/cardsDisplayed.text == "":
-		$dealerControl/cardsDisplayed.text += card[1]
+		$dealerControl/cardsDisplayed.text += str(card_value)
 	else:
-		$dealerControl/cardsDisplayed.text += ", " + card[1]
-func add_to_dealer_total(card) -> void:
-	var card_value = card[1]
-	
-	dealer_total += Deck.dict_card_numbers[card[1]]
-	$dealerControl/cardTotal.text = "Total " + str(dealer_total)
+		$dealerControl/cardsDisplayed.text += ", " + str(card_value)
 
 # _on_stay_button_pressed functions
 func reset_total() -> void:
-	player_total = 0
-	dealer_total = 0
+	Score.player_total = 0
+	Score.dealer_total = 0
 	$playerControl/cardTotal.text = ""
 	$playerControl/cardsDisplayed.text = ""
 	$dealerControl/cardTotal.text = ""

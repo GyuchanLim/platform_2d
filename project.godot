@@ -18,6 +18,7 @@ config/icon="res://Images/icon.svg"
 [autoload]
 
 Deck="*res://Globals/deck.gd"
+Score="*res://Globals/score.gd"
 
 [editor]
 

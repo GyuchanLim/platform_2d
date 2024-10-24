@@ -123,6 +123,13 @@ offset_bottom = 575.0
 text = "Deal"
 script = ExtResource("6_aofg7")
 
+[node name="cardTotal" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 313.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 61
+
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
 [connection signal="pressed" from="Close Button" to="Close Button" method="_on_pressed"]

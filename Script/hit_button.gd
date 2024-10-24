@@ -5,7 +5,7 @@ extends Button
 func _on_player_hit_pressed() -> void:
 	var dealt_card = play.draw_card()
 
-	play.add_to_player_total(dealt_card)
-	play.display_player_cards(dealt_card)
-	if play.player_total > 21:
+	Score.add_to_player_total(Deck.dict_card_numbers[dealt_card[1]])
+	play.display_player_cards(Deck.dict_card_numbers[dealt_card[1]])
+	if Score.player_total > 21:
 		play.player_bust()
