@@ -17,7 +17,8 @@ config/icon="res://Images/icon.svg"
 
 [autoload]
 
-autoLoad="*res://autoLoad.gd"
+Deck="*res://Globals/deck.gd"
+Score="*res://Globals/score.gd"
 
 [editor]
 
